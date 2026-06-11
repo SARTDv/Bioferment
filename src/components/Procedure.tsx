@@ -1,95 +1,84 @@
 import { useState } from 'react';
-import {
-  Beaker,
-  FlaskConical,
-  Timer,
-  Microscope,
-  BarChart3,
-  ClipboardCheck,
-  ChevronRight,
-  Check,
-} from 'lucide-react';
+import { Beaker, Layers, FlaskConical, Timer, BarChart3, ClipboardCheck, ChevronRight, Check } from 'lucide-react';
 
 const Procedure = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
     {
-      title: 'Preparación de Soluciones',
+      title: 'Materiales y Reactivos',
       description:
-        'Preparación de soluciones madre de café (cafeína 100mg/mL) y té verde (catequinas 50mg/mL) en agua destilada estéril. Estandarización de concentraciones de trabajo.',
-      duration: '45 min',
+        'Preparación y estandarización del instrumental de medición casero y los insumos biológicos y alimenticios necesarios para el montaje experimental.',
+      duration: 'Montaje inicial',
       icon: Beaker,
       details: [
-        'Disolver 10g de café molido en 100mL de agua destilada',
-        'Preparar infusión de té verde concentrado',
-        'Filtrar y esterilizar soluciones',
-        'Almacenar en condiciones controladas',
+        'Materiales: 7 botellas plásticas transparentes, vaso precipitado, termómetro, cronómetro, regla graduada y cucharas medidoras.',
+        'Reactivos: Agua tibia, azúcar, levadura seca, café soluble y té verde.',
       ],
     },
     {
-      title: 'Cultivo de Levaduras',
+      title: 'Diseño de la Muestra',
       description:
-        'Activación de Saccharomyces cerevisiae en medio YPD líquido durante 24 horas hasta alcanzar fase exponencial de crecimiento (DO600 ≈ 0.8-1.0).',
-      duration: '24 h',
+        'Estructuración del diseño experimental factorial compuesto por un grupo de control de referencia y seis tratamientos evaluados por duplicado para garantizar confiabilidad.',
+      duration: '7 tratamientos × 2',
+      icon: Layers,
+      details: [
+        'Grupo Control: Únicamente agua tibia, azúcar y levadura.',
+        'Tratamientos de Café: 3 concentraciones diferenciadas (Baja: 0.25 cuch., Media: 0.50 cuch., Alta: 1.00 cuch.).',
+        'Tratamientos de Té Verde: 3 concentraciones basadas en tiempo de infusión (Baja: 1 min, Media: 3 min, Alta: 5 min).',
+        'Población: Muestras biológicas activas sometidas a idénticas condiciones de temperatura y volumen.',
+      ],
+    },
+    {
+      title: 'Activación del Medio Vivo',
+      description:
+        'Preparación del entorno base para la fermentación anaeróbica idéntica dentro de cada una de las siete botellas plásticas transparentes limpias.',
+      duration: '15 min',
       icon: FlaskConical,
       details: [
-        'Inocular levadura en caldo YPD',
-        'Incubar a 30°C con agitación',
-        'Monitorear densidad óptica',
-        'Verificar viabilidad celular',
+        'Disponer las 7 botellas plásticas etiquetadas secuencialmente.',
+        'Verificar que el agua se encuentre tibia mediante el termómetro.',
+        'Dosificar rigurosamente 50 mL de agua tibia en cada unidad.',
+        'Adicionar una cucharada de azúcar y media cucharada de levadura seca por botella.',
       ],
     },
     {
-      title: 'Inducción de Estrés Oxidativo',
+      title: 'Dosificación de Estimulantes',
       description:
-        'Exposición de cultivos a peróxido de hidrógeno (H₂O₂ 5mM) como agente oxidante controlado, generando condiciones de estrés celular estandarizadas.',
-      duration: '30 min',
+        'Adición controlada de los compuestos activos metabólicos (cafeína y catequinas) a sus respectivos envases de tratamiento según el diseño factorial establecido.',
+      duration: '15 min',
       icon: Timer,
       details: [
-        'Preparar solución de H₂O₂ al 5mM',
-        'Añadir a los cultivos de levadura',
-        'Incubar en condiciones controladas',
-        'Observar cambios morfológicos',
+        'Mantener la botella control aislada sin adición de estimulantes externos.',
+        'Incorporar el café soluble directamente en polvo en las proporciones de 0.25, 0.50 y 1 cucharada.',
+        'Preparar las infusiones de té verde con cronómetro en mano y verterlas uniformemente.',
+        'Garantizar la homogeneidad de las mezclas mediante agitación leve inicial.',
       ],
     },
     {
-      title: 'Aplicación de Tratamientos',
+      title: 'Cinética y Medición de Espuma',
       description:
-        'Adición de extractos de café y té verde en diferentes concentraciones (control, 25%, 50%, 75%, 100%) a los grupos experimentales según diseño factorial.',
+        'Monitoreo sistemático de la velocidad de fermentación a intervalos fijos utilizando la regla graduada para registrar la dinámica cinética celular.',
       duration: '60 min',
-      icon: Microscope,
-      details: [
-        'Dividir cultivos en grupos experimentales',
-        'Aplicar concentraciones variables',
-        'Mantener controles negativos y positivos',
-        'Registrar tiempo de exposición exacto',
-      ],
-    },
-    {
-      title: 'Medición de CO₂ y Espuma',
-      description:
-        'Registro sistemático de la producción de CO₂ mediante medición de altura de espuma en cm, indicador directo de actividad metabólica fermentativa.',
-      duration: '2 h',
       icon: BarChart3,
       details: [
-        'Utilizar tubos de fermentación graduados',
-        'Medir altura de espuma cada 15 minutos',
-        'Documentar cambios visuales',
-        'Calcular tasa de producción de CO₂',
+        'Dejar reposar y activar los sistemas biológicos durante 1 hora completa.',
+        'Realizar mediciones estrictas a los 0, 15, 30, 45 y 60 minutos de haber iniciado.',
+        'Medir en centímetros la altura exacta de la capa de espuma formada con la regla.',
+        'Registrar visualmente la intensidad y presencia de burbujas de gas liberadas.',
       ],
     },
     {
-      title: 'Análisis de Resultados',
+      title: 'Procesamiento y Réplicas',
       description:
-        'Procesamiento estadístico de datos, elaboración de gráficos comparativos y determinación de significancia clínica mediante pruebas ANOVA y Tukey.',
-      duration: '3 h',
+        'Consolidación de los datos empíricos obtenidos y repetición secuencial del proceso para neutralizar variables externas aleatorias.',
+      duration: 'Fase de análisis',
       icon: ClipboardCheck,
       details: [
-        'Tabular todos los datos recolectados',
-        'Aplicar análisis estadístico',
-        'Generar visualizaciones',
-        'Redactar conclusiones finales',
+        'Tabular la evolución de la altura de la espuma en función del tiempo para cada botella.',
+        'Ejecutar el experimento por segunda vez bajo las mismas directrices exactas (duplicado).',
+        'Contrastar promedios entre el grupo de control, los niveles de café y los niveles de té verde.',
+        'Relacionar las alturas máximas de espuma obtenidas con el rendimiento energético celular.',
       ],
     },
   ];
@@ -108,6 +97,7 @@ const Procedure = () => {
 
   return (
     <section id="procedimiento" className="relative py-20 px-4">
+      {/* Fondo original y animaciones intactas */}
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 to-slate-950" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -123,7 +113,7 @@ const Procedure = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Stepper navigation */}
+          {/* Stepper navigation lateral */}
           <div className="lg:w-80 flex-shrink-0">
             <div className="sticky top-8 space-y-2">
               {steps.map((step, index) => {
@@ -187,7 +177,7 @@ const Procedure = () => {
             </div>
           </div>
 
-          {/* Active step content */}
+          {/* Active step card container */}
           <div className="flex-1">
             <div className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
               <div className="flex items-center gap-4 mb-6">
@@ -206,11 +196,11 @@ const Procedure = () => {
                 </div>
               </div>
 
-              <p className="text-zinc-300 leading-relaxed mb-8">
+              <p className="text-zinc-300 leading-relaxed mb-8 text-base">
                 {steps[activeStep].description}
               </p>
 
-              {/* Step details */}
+              {/* Grid interactiva de detalles */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                 {steps[activeStep].details.map((detail, index) => (
                   <div
@@ -220,12 +210,12 @@ const Procedure = () => {
                     <div className="flex items-center justify-center w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold flex-shrink-0">
                       {index + 1}
                     </div>
-                    <p className="text-zinc-400 text-sm">{detail}</p>
+                    <p className="text-zinc-400 text-sm leading-normal">{detail}</p>
                   </div>
                 ))}
               </div>
 
-              {/* Navigation buttons */}
+              {/* Botones de navegación inferiores */}
               <div className="flex items-center justify-between pt-4 border-t border-white/10">
                 <button
                   onClick={handlePrev}
