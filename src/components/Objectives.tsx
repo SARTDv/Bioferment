@@ -1,4 +1,4 @@
-import { Target, Beaker, FlaskConical, BarChart3, Microscope } from 'lucide-react';
+import { Target, Beaker, Activity, Flame } from 'lucide-react';
 import { useState } from 'react';
 
 const Objectives = () => {
@@ -7,56 +7,50 @@ const Objectives = () => {
   const generalObjective = {
     title: 'Objetivo General',
     description:
-      'Analizar el efecto antioxidante y metabólico de los estimulantes naturales (café y té verde) en las levaduras Saccharomyces cerevisiae, evaluando su capacidad para inhibir el estrés oxidativo y modulando la actividad metabólica.',
+      'Analizar el efecto de diferentes concentraciones de café y té verde sobre la actividad metabólica de levaduras mediante la observación de fermentación y producción de espuma.',
     icon: Target,
-    gradient: 'from-cyan-400 to-blue-500',
+    gradient: 'from-cyan-400 via-teal-400 to-blue-500',
   };
 
   const specificObjectives = [
     {
-      title: 'Medición de Actividad Metabólica',
+      title: '1. Evaluación de Producción de Espuma',
       description:
-        'Medir la actividad metabólica mediante el registro sistemático de CO₂ producido (espuma en cm) en tratamientos con diferentes concentraciones de cafeína y catequinas.',
+        'Evaluar la producción de espuma en levaduras expuestas a diferentes concentraciones de café y té verde como indicador de la intensidad metabólica.',
       icon: Beaker,
-      gradient: 'from-blue-400 to-indigo-500',
+      gradient: 'from-amber-500 to-yellow-600', // Tonos cálidos (Café)
     },
     {
-      title: 'Comparación de Sustancias',
+      title: '2. Comparación de Actividad Fermentativa',
       description:
-        'Comparar la efectividad antioxidante entre el café (cafeína) y el té verde (catequinas) en la protección celular contra agentes oxidantes.',
-      icon: FlaskConical,
-      gradient: 'from-indigo-400 to-purple-500',
+        'Comparar la actividad fermentativa observada en cada tratamiento experimental para identificar diferencias en el grado de estimulación celular.',
+      icon: Activity,
+      gradient: 'from-emerald-400 to-green-500', // Tonos vegetales (Té Verde)
     },
     {
-      title: 'Análisis de Concentraciones',
+      title: '3. Relación con Procesos Bioquímicos',
       description:
-        'Determinar las concentraciones óptimas de cada compuesto estimulante que maximicen la protección antioxidante sin afectar negativamente la viabilidad celular.',
-      icon: BarChart3,
-      gradient: 'from-cyan-400 to-teal-500',
-    },
-    {
-      title: 'Análisis Bioquímico',
-      description:
-        'Evaluar los marcadores bioquímicos de estrés oxidativo y correlacionarlos con los cambios observados en la actividad fermentativa de las levaduras.',
-      icon: Microscope,
-      gradient: 'from-blue-400 to-cyan-500',
+        'Relacionar los resultados experimentales con procesos bioquímicos fundamentales como la fermentación y el metabolismo energético a nivel celular.',
+      icon: Flame,
+      gradient: 'from-cyan-400 to-teal-500', // Tonos cinéticos (Energía)
     },
   ];
 
   return (
     <section id="objetivos" className="relative py-20 px-4">
+      {/* Fondo original restablecido */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-zinc-950" />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Objetivos de la{' '}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Investigación
+            Objetivos del{' '}
+            <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
+              Proyecto
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-teal-400 mx-auto rounded-full" />
         </div>
 
         {/* General Objective */}
@@ -68,7 +62,7 @@ const Objectives = () => {
           >
             <div
               className={`absolute inset-0 bg-gradient-to-r ${generalObjective.gradient} rounded-2xl blur-xl opacity-0 transition-opacity duration-500 ${
-                hoveredCard === 0 ? 'opacity-20' : ''
+                hoveredCard === 0 ? 'opacity-15' : ''
               }`}
             />
             <div className="relative p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-white/20 transition-all duration-300">
@@ -80,15 +74,15 @@ const Objectives = () => {
                   <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
                     {generalObjective.title}
                   </h3>
-                  <p className="text-zinc-400 leading-relaxed">{generalObjective.description}</p>
+                  <p className="text-zinc-300 leading-relaxed text-base md:text-lg">{generalObjective.description}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Specific Objectives Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Specific Objectives Grid (Adaptado dinámicamente para 3 elementos) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {specificObjectives.map((objective, index) => (
             <div
               key={index}
@@ -98,12 +92,12 @@ const Objectives = () => {
             >
               <div
                 className={`absolute inset-0 bg-gradient-to-r ${objective.gradient} rounded-xl blur-lg opacity-0 transition-opacity duration-500 ${
-                  hoveredCard === index + 1 ? 'opacity-15' : ''
+                  hoveredCard === index + 1 ? 'opacity-10' : ''
                 }`}
               />
-              <div className="relative h-full p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-white/20 transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${objective.gradient}`}>
+              <div className="relative h-full p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-white/20 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                <div className="flex flex-col gap-4">
+                  <div className={`p-3 rounded-lg bg-gradient-to-r ${objective.gradient} w-fit`}>
                     <objective.icon className="w-5 h-5 text-white" />
                   </div>
                   <div>

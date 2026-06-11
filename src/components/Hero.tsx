@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className=" pt-10 relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Fondo original restablecido */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-zinc-950 to-slate-900" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)]" />
@@ -49,7 +49,7 @@ const Hero = () => {
         </h1>
 
         {/* Introducción ultra-corta modificada para máxima retención de lectura */}
-          <p className="pt-10 text-md md:text-lg text-zinc-400 max-w-3xl mx-auto mb-10">
+          <p className="text-md md:text-lg text-zinc-400 max-w-3xl mx-auto mb-10">
             ¿Cómo alteran el metabolismo las bebidas cotidianas? Analizamos el impacto de la{' '}
             <span className="text-amber-400 font-semibold bg-amber-400/10 px-1.5 py-0.5 rounded border border-amber-400/20">cafeína</span> (café) y las{' '}
             <span className="text-emerald-400 font-semibold bg-emerald-400/10 px-1.5 py-0.5 rounded border border-emerald-400/20">catequinas</span> (té verde) sobre las vías bioquímicas de producción energética. Utilizando{' '}
@@ -59,30 +59,26 @@ const Hero = () => {
           </p>
 
         {/* Tarjeta de Contador Dinámico */}
-        <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl relative group">
-          
-          {/* Título de la tarjeta adaptado a la cinética del experimento */}
-          <div className="flex items-center gap-3 text-zinc-400 text-xs font-semibold uppercase tracking-wider">
-            <FlaskConical className="w-4 h-4 text-cyan-400" />
+        <div className="inline-flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl relative group">
+  
+          <div className="flex items-center gap-2 text-zinc-400 text-[10px] font-semibold uppercase tracking-wider">
+            <FlaskConical className="w-3 h-3 text-cyan-400" />
             <span>Máxima Eficiencia de Fermentación</span>
-            <Atom className="w-4 h-4 text-teal-400" />
+            <Atom className="w-3 h-3 text-teal-400" />
           </div>
 
-          {/* Contador dinámico ajustado al 84% (puedes cambiar el tope en tu useEffect a 84) */}
           <div className="relative">
-            <div className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent font-mono">
+            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent font-mono">
               {inhibitionRate}%
             </div>
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-36 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent rounded-full" />
+            <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-28 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent rounded-full" />
           </div>
 
-          {/* Texto de enganche con dato real */}
-          <p className="text-zinc-400 text-xs max-w-xs leading-normal">
+          <p className="text-zinc-400 text-[10px] max-w-xs leading-relaxed text-center">
             Tasa máxima de asimilación de sustratos y actividad celular en matrices vegetales optimizadas.
           </p>
 
-          {/* Referencia corta y elegante de los encargados */}
-          <div className="text-[10px] text-zinc-500 font-mono tracking-tight pt-2 border-t border-white/5 w-full text-center">
+          <div className="text-[9px] text-zinc-500 font-mono tracking-tight pt-1.5 border-t border-white/5 w-full text-center">
             Ref: Reis, Kosińska-Cagnazzo & Schmitt et al.
           </div>
         </div>
