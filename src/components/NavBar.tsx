@@ -36,7 +36,7 @@ export default function Navbar() {
           onClick={() => handleNav('#hero')}
           className="flex items-center gap-2 text-white font-bold text-sm hover:text-emerald-400 transition-colors"
         >
-          <Zap size={20} className="text-emerald-400" />
+          <Zap size={20} className="text-teal-400" />
           <span className="hidden sm:inline">BioFerment</span>
         </button>
 

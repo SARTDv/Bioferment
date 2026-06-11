@@ -5,6 +5,7 @@ const Footer = () => {
     { name: 'Laura Isabel Moncayo', role: 'Investigadora Principal' },
     { name: 'Juan Sebastián Muñoz', role: 'Co-investigador' },
     { name: 'Jose Manuel Jiménez', role: 'Co-investigador' },
+    { name: 'Alejandro Muñoz', role: 'Programador' },
   ];
 
   const subjects = [
@@ -86,10 +87,6 @@ const Footer = () => {
             <p className="text-zinc-500 text-sm">
               Proyecto de Investigación Científica • Junio 2026
             </p>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-zinc-500 text-sm">Datos actualizados</span>
-            </div>
           </div>
 
           <p className="text-center text-zinc-600 text-xs mt-6">
