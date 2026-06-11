@@ -107,7 +107,7 @@ const Procedure = () => {
   };
 
   return (
-    <section className="relative py-20 px-4">
+    <section id="procedimiento" className="relative py-20 px-4">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 to-slate-950" />
 
       <div className="relative z-10 max-w-6xl mx-auto">

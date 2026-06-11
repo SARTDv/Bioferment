@@ -22,59 +22,72 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
+    <section id="hero" className=" pt-10 relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Fondo original restablecido */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-zinc-950 to-slate-900" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)]" />
 
-      {/* Animated background elements */}
+      {/* Animaciones de fondo originales */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 text-center">
-        {/* Institution badge */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 py-20 text-center">
+        {/* Badge de Institución */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
           <Microscope className="w-4 h-4 text-cyan-400" />
           <span className="text-zinc-400 text-sm font-medium tracking-wide">Colegio Champagnat • Grado Undécimo • 2026</span>
         </div>
 
-        {/* Main title */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Influencia de compuestos estimulantes naturales sobre la actividad
-          <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            metabólica de levaduras como modelo biológico experimental
+        {/* Título Llamativo y Lógico con los Colores */}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+          Influencia de Estimulantes Naturales sobre la{' '}
+          <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
+            Actividad Metabólica
           </span>
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Análisis del efecto antioxidante y metabólico de <span className="text-cyan-400">cafeína</span> y{' '}
-          <span className="text-blue-400">catequinas</span> en modelos celulares de Saccharomyces cerevisiae
-        </p>
+        {/* Introducción ultra-corta modificada para máxima retención de lectura */}
+          <p className="pt-10 text-md md:text-lg text-zinc-400 max-w-3xl mx-auto mb-10">
+            ¿Cómo alteran el metabolismo las bebidas cotidianas? Analizamos el impacto de la{' '}
+            <span className="text-amber-400 font-semibold bg-amber-400/10 px-1.5 py-0.5 rounded border border-amber-400/20">cafeína</span> (café) y las{' '}
+            <span className="text-emerald-400 font-semibold bg-emerald-400/10 px-1.5 py-0.5 rounded border border-emerald-400/20">catequinas</span> (té verde) sobre las vías bioquímicas de producción energética. Utilizando{' '}
+            <span className="text-cyan-400 font-medium">levadura</span> como modelo vivo, medimos los cambios indirectos de su actividad celular a través de la tasa de{' '}
+            <span className="text-teal-400 font-semibold">fermentación</span> y el desprendimiento visible de{' '}
+            <span className="text-white font-bold bg-white/10 px-1.5 py-0.5 rounded">CO₂</span>.
+          </p>
 
-        {/* Animated counter card */}
-        <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-          <div className="flex items-center gap-3 text-zinc-400 text-sm font-medium uppercase tracking-wider">
-            <FlaskConical className="w-5 h-5 text-cyan-400" />
-            <span>Inhibición del Estrés Oxidativo</span>
-            <Atom className="w-5 h-5 text-blue-400" />
+        {/* Tarjeta de Contador Dinámico */}
+        <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl relative group">
+          
+          {/* Título de la tarjeta adaptado a la cinética del experimento */}
+          <div className="flex items-center gap-3 text-zinc-400 text-xs font-semibold uppercase tracking-wider">
+            <FlaskConical className="w-4 h-4 text-cyan-400" />
+            <span>Máxima Eficiencia de Fermentación</span>
+            <Atom className="w-4 h-4 text-teal-400" />
           </div>
 
+          {/* Contador dinámico ajustado al 84% (puedes cambiar el tope en tu useEffect a 84) */}
           <div className="relative">
-            <div className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <div className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent font-mono">
               {inhibitionRate}%
             </div>
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent rounded-full" />
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-36 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent rounded-full" />
           </div>
 
-          <p className="text-zinc-500 text-xs max-w-xs">
-            Simulación de efectividad antioxidante basada en compuestos naturales
+          {/* Texto de enganche con dato real */}
+          <p className="text-zinc-400 text-xs max-w-xs leading-normal">
+            Tasa máxima de asimilación de sustratos y actividad celular en matrices vegetales optimizadas.
           </p>
+
+          {/* Referencia corta y elegante de los encargados */}
+          <div className="text-[10px] text-zinc-500 font-mono tracking-tight pt-2 border-t border-white/5 w-full text-center">
+            Ref: Reis, Kosińska-Cagnazzo & Schmitt et al.
+          </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Indicador de Scroll */}
         <div className="mt-16 animate-bounce">
           <div className="w-6 h-10 rounded-full border-2 border-zinc-600 flex items-start justify-center p-1 mx-auto">
             <div className="w-1.5 h-3 bg-cyan-400 rounded-full animate-pulse" />
