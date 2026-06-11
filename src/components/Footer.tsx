@@ -88,10 +88,6 @@ const Footer = () => {
               Proyecto de Investigación Científica • Junio 2026
             </p>
           </div>
-
-          <p className="text-center text-zinc-600 text-xs mt-6">
-            Influencia de Compuestos Estimulantes Naturales en el Estrés Oxidativo
-          </p>
         </div>
       </div>
     </footer>
