@@ -42,9 +42,9 @@ const Hero = () => {
 
         {/* Main title */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Influencia de Compuestos Estimulantes
+          Influencia de compuestos estimulantes naturales sobre la actividad
           <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            Naturales en el Estrés Oxidativo
+            metabólica de levaduras como modelo biológico experimental
           </span>
         </h1>
 
