@@ -5,7 +5,6 @@ const Footer = () => {
     { name: 'Laura Isabel Moncayo', role: 'Investigadora Principal' },
     { name: 'Juan Sebastián Muñoz', role: 'Co-investigador' },
     { name: 'Jose Manuel Jiménez', role: 'Co-investigador' },
-    { name: 'Alejandro Muñoz', role: 'Programador' },
   ];
 
   const subjects = [

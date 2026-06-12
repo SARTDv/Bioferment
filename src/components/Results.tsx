@@ -1,6 +1,29 @@
-import { Clipboard, Eye, FileText, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Clipboard, Eye, FileText, TableProperties, Filter } from 'lucide-react';
 
 const Results = () => {
+  // Estado para el filtro interactivo de la tabla
+  const [filter, setFilter] = useState<'todos' | 'cafe' | 'te'>('todos');
+
+  // Datos de la tabla
+  const data = [
+    { name: 'Control', t15: '0,2 cm', t30: '0,4 cm', t45: '0,6 cm', t60: '0,8 cm', obs: 'Pocas burbujas', type: 'control' },
+    { name: 'Café bajo', t15: '0,3 cm', t30: '0,5 cm', t45: '0,8 cm', t60: '1,0 cm', obs: 'Espuma moderada', type: 'cafe' },
+    { name: 'Café medio', t15: '0,4 cm', t30: '0,8 cm', t45: '1,2 cm', t60: '1,8 cm', obs: 'Más burbujas', type: 'cafe' },
+    { name: 'Café alto', t15: '0,6 cm', t30: '1,7 cm', t45: '2,3 cm', t60: '3,5 cm', obs: 'Fermentación más visible', type: 'cafe' },
+    { name: 'Té bajo', t15: '0,2 cm', t30: '0,5 cm', t45: '0,8 cm', t60: '1,0 cm', obs: 'Espuma moderada', type: 'te' },
+    { name: 'Té medio', t15: '0,4 cm', t30: '0,8 cm', t45: '1,2 cm', t60: '2,7 cm', obs: 'Incremento progresivo', type: 'te' },
+    { name: 'Té alto', t15: '0,5 cm', t30: '1,5 cm', t45: '2,0 cm', t60: '3,0 cm', obs: 'Alta formación de espuma', type: 'te' },
+  ];
+
+  // Filtrado lógico de los datos
+  const filteredData = data.filter((item) => {
+    if (filter === 'todos') return true;
+    if (filter === 'cafe') return item.type === 'cafe' || item.type === 'control';
+    if (filter === 'te') return item.type === 'te' || item.type === 'control';
+    return true;
+  });
+
   return (
     <section id="resultados" className="relative py-20 px-4">
       {/* Fondo degradado oscuro original */}
@@ -47,6 +70,80 @@ const Results = () => {
               de espuma en comparación con el grupo control y las concentraciones bajas. Además, se observó una 
               mayor presencia de burbujas en estos tratamientos, indicando una actividad fermentativa más evidente.
             </p>
+          </div>
+        </div>
+
+        {/* NUEVA SECCIÓN: Tabla Interactiva de Datos */}
+        <div className="p-6 md:p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md mb-8 overflow-hidden">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <div className="flex items-center gap-3 text-cyan-400">
+              <TableProperties className="w-5 h-5" />
+              <h3 className="text-xl font-semibold text-white">Registro de Altura de Espuma (cm)</h3>
+            </div>
+            
+            {/* Filtros Interactivos */}
+            <div className="flex items-center gap-2 bg-zinc-900/80 p-1 rounded-xl border border-white/5 self-start sm:self-auto">
+              <Filter className="w-3.5 h-3.5 text-zinc-500 ml-2 hidden sm:block" />
+              <button
+                onClick={() => setFilter('todos')}
+                className={`px-3 py-1 text-xs font-medium rounded-lg transition-all ${
+                  filter === 'todos' ? 'bg-cyan-500 text-black font-semibold' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                Todos
+              </button>
+              <button
+                onClick={() => setFilter('cafe')}
+                className={`px-3 py-1 text-xs font-medium rounded-lg transition-all ${
+                  filter === 'cafe' ? 'bg-cyan-500 text-black font-semibold' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                Café
+              </button>
+              <button
+                onClick={() => setFilter('te')}
+                className={`px-3 py-1 text-xs font-medium rounded-lg transition-all ${
+                  filter === 'te' ? 'bg-cyan-500 text-black font-semibold' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                Té
+              </button>
+            </div>
+          </div>
+
+          {/* Contenedor Responsive para la tabla */}
+          <div className="overflow-x-auto rounded-xl border border-white/5">
+            <table className="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr className="bg-white/5 text-zinc-300 font-medium border-b border-white/10">
+                  <th className="p-4 text-cyan-400 font-semibold">Tratamiento</th>
+                  <th className="p-4">15 min</th>
+                  <th className="p-4">30 min</th>
+                  <th className="p-4">45 min</th>
+                  <th className="p-4">60 min</th>
+                  <th className="p-4 text-teal-400 font-semibold">Observaciones</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5 text-zinc-300">
+                {filteredData.map((row, index) => (
+                  <tr 
+                    key={index} 
+                    className="hover:bg-cyan-500/5 transition-colors group"
+                  >
+                    <td className="p-4 font-medium text-white group-hover:text-cyan-400 transition-colors">
+                      {row.name}
+                    </td>
+                    <td className="p-4">{row.t15}</td>
+                    <td className="p-4">{row.t30}</td>
+                    <td className="p-4">{row.t45}</td>
+                    <td className="p-4 font-semibold text-zinc-100">{row.t60}</td>
+                    <td className="p-4 text-zinc-400 group-hover:text-zinc-300 italic transition-colors">
+                      {row.obs}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
